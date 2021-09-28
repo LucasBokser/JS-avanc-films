@@ -8,15 +8,7 @@ const db = level('./db', {valueEncoding: 'json'})
 app.use(express.static('public'));
 app.use(express.json())
 
-//
-// app.get('/', (req, res) => {
-//     res.sendFile(__dirname + "/index.html")
-// });
-//
-// app.get('/users/:userID', (req, res) => {
-//     console.log(req.params)
-//     res.sendFile(__dirname + "/index.html")
-// });
+//pour les movies !!!
 
 
 app.post('/movies', async (req, res) => {
@@ -35,6 +27,8 @@ app.delete('/movies/:id', async (req, res) => {
     await db.del(req.params.id)  //await db.put(req.body)
     res.status(200).json("supprimé")
 });
+
+//Pour les listes !!
 
 app.get('/movies/:id', async (req, res) => {
         try {
@@ -87,12 +81,6 @@ app.post('/list/:id/movies/add', async (req, res) => {
     let movie_id = req.body.movies_id
     list.movies_id.push(movie_id)
     db.put(list_id,list)
-    res.status(200).json(list)
-});
-
-app.get('/list/:id', async (req, res) => {
-    let movies_id = parseInt(req.params.id)
-    let list = await db.get(movies_id)
     res.status(200).json(list)
 });
 
