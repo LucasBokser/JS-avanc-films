@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = (parseInt(process.env.PORT || '3000'));
 const level = require('level');
 const db = level('./db', {valueEncoding: 'json'})
 
