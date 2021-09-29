@@ -8,6 +8,10 @@ const db = level('./db', {valueEncoding: 'json'})
 app.use(express.static('public'));
 app.use(express.json())
 
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html')
+});
+
 //pour les movies !!!
 
 
