@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "level": "^7.0.0"
+    "level": "^7.0.0",
+    "levelup": "^5.0.1"
   }
 }
